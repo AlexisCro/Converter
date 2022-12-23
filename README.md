@@ -23,3 +23,17 @@ Then in your terminal enter
 ```
 git clone [link]
 ```
+
+# Tools
+The application being 100% front-end it is advisable to use the Live server extension of VSCode. 
+
+# GIT
+If you want to create some aliases to use with git and work fastly, here is some example :
+```
+git config --global alias.br branch
+git config --global alias.co checkout
+git config --global alias.com commit
+git config --global alias.pl pull
+git config --global alias.st status
+```
+As you can see you can create some global aliases editing the GIT's config file 
