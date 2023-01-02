@@ -61,4 +61,4 @@ if you need to create a new feature a new otpion in the app name your branch as 
 if you need to add a fix about an issue use this syntax : "issue/*nameofyourbranch*"
 
 For instance :
-I want modify the readMe after the add of an API, so I create a new branch on my local repositorie name "devops/update-readMe-abour-API"
+I want modify the readMe after the add of an API, so I create a new branch on my local repositorie name "devops/update-readMe-about-API"
