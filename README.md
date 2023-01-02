@@ -45,7 +45,7 @@ git push
 ```
 But sometimes it's possible that git push isn't enough, in this case git will ask you to make :
 ```
-git push --set-upstream origin *nameofyourbranch*
+git push --set-upstream origin nameofyourbranch
 ```
 Do it, by this way you will create the branch on github.
 Finally you have to make a pull request. 
