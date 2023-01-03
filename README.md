@@ -66,3 +66,12 @@ if you need to add a fix about an issue use this syntax : "issue/*nameofyourbran
 
 For instance :
 I want modify the readMe after the add of an API, so I create a new branch on my local repositorie name "devops/update-readMe-about-API"
+
+# Pull Request
+When you push your code you have to make a pull request. 
+
+First, when you push with git on your PC you will have a message on your terminal "Create a pull request" and just below you will have an web address where your pull request is. 
+
+Then you will copy this url on your browser and you will arrive on Github. 
+Create your Pull Request. 
+Finally create an issue in Github, associate your Pull Request, assign the issue to someone to review it.
