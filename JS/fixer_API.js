@@ -28,9 +28,8 @@ let priceOutput   = document.getElementById('price-output');
 convertButton.addEventListener('click', () => {
     let priceInput   = document.getElementById('price-input').value;
     let deviseInput  = document.getElementById('devise-input').value;
-    let deviseOutput = document.getElementById('devise-output').value;
-    let myHeaders    = new Headers();
-    
+    let deviseOutput = document.getElementById('devise-output').value;    
+    let i            = 1;
         
     let requestOptions = {
         method: 'GET',
@@ -38,8 +37,33 @@ convertButton.addEventListener('click', () => {
         headers: myHeaders
     };
     
-    fetch(`https://api.apilayer.com/fixer/convert?to=${deviseOutput}&from=${deviseInput}&amount=${priceInput}`, requestOptions)
-        .then(response => response.json())
-        .then(result => priceOutput.value = result["result"])
-        .catch(error => alert('error', error))
+    while (i <= 2){
+      if (i === 1){
+        fetch(`https://api.apilayer.com/fixer/convert?to=${deviseOutput}&from=${deviseInput}&amount=${priceInput}`, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            console.log(result);
+            console.log(result.message);
+            if ( result.message !== null && result.message.includes("You have exceeded your daily/monthly API rate limit") ){
+              i ++;
+            } else {
+              priceOutput.value = result["result"];
+              i = 3;
+            }
+          })
+          .catch(error => alert('error', error));
+          console.log(`je passe ici est i = ${i}`);
+      }else if (i === 2){
+        fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${deviseOutput}&from=${deviseInput}&amount=${priceInput}`, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            if (result.message !== null){
+              alert(result.message);
+              i++;
+            } else {
+              priceOutput.value = result["result"];
+            }
+          })
+      }
+}
 })
