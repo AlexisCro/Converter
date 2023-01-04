@@ -31,7 +31,7 @@ API use :
 Fixer and Exchange Rates to convert currencies.
 Only Exchanges Rates to display and construct the dynamic list of currencies symbols. 
 
-BOOTSTRAP
+BOOTSTRAP v5.3
 
 # GIT
 If you want to create some aliases to use with git and work fastly, here is some example :
