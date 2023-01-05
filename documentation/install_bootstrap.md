@@ -20,4 +20,13 @@ For example :
 
 Here in my project, I created a directory assets then another directory named bootstrap, finally I placed my two files extract from the zip file.
 
-Finally you need to add the link in your HTML 
+Finally you need to add the link in your HTML between tag `<head></head>` enter the code below to add the CSS:
+```
+<link href="../assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css" rel="stylesheet">
+```
+And you need to add after the tag `</body>` a tag `<script>` like this :
+```
+<script src="../assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
+```
+
+That's it !
