@@ -38,14 +38,16 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title" style="margin-bottom: 15px;">Convertisseur</h5>
-                        <select id="devise-input" class="form-select form-select-lg mb-3" aria-label="form-select-lg"></select>
-                        <input id="price-input" type="integer" class="form-control form-control-lg" placeholder="chiffre">
-                        <div style="text-align: center; font-size:50px">&darr;</div>
-                        <select id="devise-output" class="form-select form-select-lg mb-3" aria-label="form-select-lg">/select>
-                        <input id="price-output" type="integer" class="form-control form-control-lg mb-3" placeholder="chiffre">
-                        <div class="d-grid gap-2 col-6 mx-auto">
-                            <button id="convert-button" type="button" class="btn btn-primary">Convertir</button>
-                        </div>
+                        <form>
+                            <select id="devise-input" class="form-select form-select-lg mb-3" aria-label="form-select-lg" required></select>
+                            <input id="price-input" type="integer" class="form-control form-control-lg" placeholder="chiffre" required>
+                            <div style="text-align: center; font-size:50px">&darr;</div>
+                            <select id="devise-output" class="form-select form-select-lg mb-3" aria-label="form-select-lg" required></select>
+                            <input id="price-output" type="integer" class="form-control form-control-lg mb-3" placeholder="chiffre" disabled>
+                            <div class="d-grid gap-2 col-6 mx-auto">
+                                <button id="convert-button" type="button" class="btn btn-primary">Convertir</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
