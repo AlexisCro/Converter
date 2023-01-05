@@ -1,7 +1,7 @@
 # How to install bootstrap in local
 ## Download
 
-First you need to download the directory which conatins CSS and JS of the framework. 
+First you need to download the directory which contains CSS and JS of the framework. 
 To do this go on [Bootstrap site](https://getbootstrap.com/docs/5.3/getting-started/download/ "link to download").
 
 Then click on
@@ -18,7 +18,7 @@ For example :
 
 ![Ceci est un exemple d’image](../assets/documentations/install_bootstrap/extract_files.png)
 
-Here in my project, I created a directory assets then another directory named bootstrap, finally I placed my two files extract from the zip file.
+Here in my project, I created a directory assets, then another one named bootstrap. After this I placed my two extract files from the zip file.
 
 Finally you need to add the link in your HTML between tag `<head></head>` enter the code below to add the CSS:
 ```
