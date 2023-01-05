@@ -27,11 +27,20 @@ git clone [link]
 # Tools
 The application being 100% front-end it is advisable to use the Live server extension of VSCode. 
 
-API use : 
+## API use : 
 Fixer and Exchange Rates to convert currencies.
+
 Only Exchanges Rates to display and construct the dynamic list of currencies symbols. 
 
+## Framework 
 BOOTSTRAP v5.3
+
+## Link documentation
+[Exchange Rates](https://apilayer.com/marketplace/exchangerates_data-api#documentation-tab)
+
+[Fixer](https://apilayer.com/marketplace/fixer-api)
+
+[Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 # GIT
 If you want to create some aliases to use with git and work fastly, here is some example :
