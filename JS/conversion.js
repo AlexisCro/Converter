@@ -1,5 +1,6 @@
 //manage fixer to have all currencies in the choice list
 let deviseInput  = document.getElementById('devise-input');
+let deviseChart  = document.getElementById('devise-chart');
 let deviseOutput = document.getElementById('devise-output');
 let myHeaders = new Headers();
 myHeaders.append("apikey", "g5abhnyuIjiV7oWQhZO6J7j7CJV3ac5h");
@@ -16,6 +17,7 @@ fetch("https://api.apilayer.com/exchangerates_data/symbols", requestOptions)
     let symbols = result.symbols;
     for(i in symbols){
         deviseInput.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
+        deviseChart.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
         deviseOutput.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
     }
   })
