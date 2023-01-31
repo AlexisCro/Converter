@@ -25,6 +25,7 @@ const MONTHS   = {
     11: 'NOVEMBRE',
     12: 'DECEMBRE'
 }
+let realChart;
 
 function numberOfMonthBetweenTwoDates(date1, date2){
     let startMonth = date1.getMonth();
@@ -105,44 +106,83 @@ BUTTON.addEventListener('click', ()=>{
     .then(response => response.json())
     .then(result => {
         let rates = result["rates"];
-        console.log(result);
         exampleChart.destroy();
-        const realChart = new Chart(myChart, {
-        type: 'line',
-        data: {
-            labels: labels(startDate, endDate, startMonth),
-            datasets: [{
-                label: `${DEVISE} : masquez moi`,
-                data: [rates[DEVISE].start_rate, rates[DEVISE].end_rate],
-                borderColor: 'red',
-                backgroundColor: '#f8c0b4'
-            }]
-        },
-        options: {
-            transitions: {
-                show: {
-                    animations: {
-                        x: {
-                            from: 0
-                        },
-                        y: {
-                            from: 0
+        if(realChart != undefined){
+            realChart.destroy();
+            realChart = new Chart(myChart, {
+            type: 'line',
+            data: {
+                labels: labels(startDate, endDate, startMonth),
+                datasets: [{
+                    label: `${DEVISE} : masquez moi`,
+                    data: [rates[DEVISE].start_rate, rates[DEVISE].end_rate],
+                    borderColor: 'red',
+                    backgroundColor: '#f8c0b4'
+                }]
+            },
+            options: {
+                transitions: {
+                    show: {
+                        animations: {
+                            x: {
+                                from: 0
+                            },
+                            y: {
+                                from: 0
+                            }
                         }
-                    }
-                },
-                hide: {
-                    animations: {
-                        x: {
-                            to: 0
-                        },
-                        y: {
-                            to: 0
+                    },
+                    hide: {
+                        animations: {
+                            x: {
+                                to: 0
+                            },
+                            y: {
+                                to: 0
+                            }
                         }
                     }
                 }
             }
+            })
+        }else{
+            realChart = new Chart(myChart, {
+                type: 'line',
+                data: {
+                    labels: labels(startDate, endDate, startMonth),
+                    datasets: [{
+                        label: `${DEVISE} : masquez moi`,
+                        data: [rates[DEVISE].start_rate, rates[DEVISE].end_rate],
+                        borderColor: 'red',
+                        backgroundColor: '#f8c0b4'
+                    }]
+                },
+                options: {
+                    transitions: {
+                        show: {
+                            animations: {
+                                x: {
+                                    from: 0
+                                },
+                                y: {
+                                    from: 0
+                                }
+                            }
+                        },
+                        hide: {
+                            animations: {
+                                x: {
+                                    to: 0
+                                },
+                                y: {
+                                    to: 0
+                                }
+                            }
+                        }
+                    }
+                }
+            })
         }
-        })
     })
     .catch(error => console.log('error', error));
 })
