@@ -38,6 +38,7 @@ convertButton.addEventListener('click', () => {
   fetch(`https://api.apilayer.com/fixer/convert?to=${deviseOutput}&from=${deviseInput}&amount=${priceInput}`, requestOptions)
     .then(response => response.json())
     .then(result => {
+      if (result.message != undefined){
         if (result.message.includes("You have exceeded") ){
           console.log("je suis dans la première condition");
           fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${deviseOutput}&from=${deviseInput}&amount=${priceInput}`, requestOptions)
@@ -52,6 +53,13 @@ convertButton.addEventListener('click', () => {
         } else {
           priceOutput.value = result["result"];
         }
-      })
+      }else{
+        fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${deviseOutput}&from=${deviseInput}&amount=${priceInput}`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+              priceOutput.value = result["result"];
+            })
+      }
+    })
     .catch(error => console.log("error", error));
 })
