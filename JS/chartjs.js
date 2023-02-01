@@ -135,8 +135,12 @@ BUTTON.addEventListener('click', ()=>{
     const endMonth     = endDate.getMonth() + 1;
     const endYear      = endDate.getFullYear();
     const DEVISE       = document.getElementById('devise-chart').value;
+    const BASE         = document.getElementById('base-chart').value;
+    let titleChart     = document.getElementById('title-timeseries');
 
-    fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${startDateAPI}&end_date=${endDateAPI}&symbols=${DEVISE}`, requestOptions)
+    titleChart.innerHTML = `Taux de change basé sur ${BASE}`;
+
+    fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${startDateAPI}&end_date=${endDateAPI}&base=${BASE}&symbols=${DEVISE}`, requestOptions)
     .then(response => response.json())
     .then(result => {
         let rates = result["rates"];
