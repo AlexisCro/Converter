@@ -71,15 +71,11 @@ function dataAccordingToDate(dataRates, startDate, endDate, devise){
     let startDay   = startDate.substring(8, 10);
     let date1      = new Date(startDate);
     let date2      = new Date(endDate);
-    console.log(numberOfMonthBetweenTwoDates(date1, date2));
     for (let i = 0; i <= numberOfMonthBetweenTwoDates(date1, date2); i++){
-        console.log(new Date(`${startYear}-${formatIntegerToString(firstMonth)}-${startDay}`) > date2);
         if (new Date(`${startYear}-${formatIntegerToString(firstMonth)}-${startDay}`) > date2 == true){
-            console.log("je passe dans la condition undefined");
             array.push(dataRates.rates[endDate][devise]);
         }else{
             array.push(dataRates.rates[`${startYear}-${formatIntegerToString(firstMonth)}-${startDay}`][devise]);
-            console.log(`date où ça merde : ${startYear}-${formatIntegerToString(firstMonth)}-${startDay}`);
         }
         firstMonth++;
         if (firstMonth > 12 ){
@@ -87,10 +83,7 @@ function dataAccordingToDate(dataRates, startDate, endDate, devise){
             startYear++;
             startYear = startYear.toString();
         };
-        console.log(`${startYear}-${formatIntegerToString(firstMonth)}-${startDay}`);
-        console.log("i : " + i);
     }
-    console.log(array);
     return array;
 }
 
