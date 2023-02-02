@@ -1,0 +1,67 @@
+.custom{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom div:first-child{
+    display: flex;
+    flex-direction: row;
+}
+
+.custom div span{
+    border-radius: 10% 0% 0% 10%;
+    border-right: none;
+}
+
+.custom .visible-list-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.custom div .visible-list{
+    border-radius: 0%;
+    border-right: none;
+}
+
+.custom div .logo-expand-container{
+    border-radius: 0% 10% 10% 0%;
+    background-color: white;
+    border-left: none;
+}
+
+.custom div img{
+    width: 25px;
+    height: 25px;
+}
+
+.hidden-list-container{
+    display: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    max-height: 150px;
+    overflow: auto;
+}
+
+.hidden-list li{
+    list-style: none;
+}
+
+.visible-list{
+    width: 100px;
+    background-color: white;
+}
+
+.hidden-list-container-visible{
+    display: block;
+}
+
+.custom .visible-list-container-active{
+    z-index: 1;
+    border-radius: 0% 8% 8% 0%;
+    border-width: 4px;
+    border-color: lightblue;
+    border-style: solid;
+    background-color: lightblue;
+}
