@@ -12,7 +12,11 @@ fetch("https://api.apilayer.com/exchangerates_data/symbols", requestOptions)
     for(i in symbols){
         deviseInput.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
         deviseChart.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
-        baseChart.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
+        if ( i == "EUR" ){
+          baseChart.insertAdjacentHTML('afterbegin', `<option class="input-group-text" selected value=${i}>${symbols[i]}</option>`);
+        }else{
+          baseChart.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
+        };
         deviseOutput.insertAdjacentHTML('afterbegin', `<option class="input-group-text" value=${i}>${symbols[i]}</option>`);
     }
   })
