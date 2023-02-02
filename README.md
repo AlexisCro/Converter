@@ -35,12 +35,16 @@ Only Exchanges Rates to display and construct the dynamic list of currencies sym
 ## Framework 
 BOOTSTRAP v5.3
 
+Chart.js v3.7.1
+
 ## Link documentation
 [Exchange Rates](https://apilayer.com/marketplace/exchangerates_data-api#documentation-tab)
 
 [Fixer](https://apilayer.com/marketplace/fixer-api)
 
 [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+[Chart.js](https://www.chartjs.org/)
 
 # GIT
 If you want to create some aliases to use with git and work fastly, here is some example :
