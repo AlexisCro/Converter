@@ -96,28 +96,28 @@
                 </div>
             </div>
         </div>
-        <div class="input-group mb-3 custom">
+        <div id="multi-select" class="input-group mb-3 custom">
             <div>
                 <span class="input-group-text" id="basic-addon2">devises</span>
-                <div class="visible-list-container">
+                <div id="visible-list-container" class="visible-list-container">
                     <div class="input-group-text visible-list"></div>
                     <div class="input-group-text logo-expand-container">
-                        <img src="./assets/images/logo-expand.png" alt="logo expand">
+                        <img id="logo-expand" src="./assets/images/logo-expand.png" alt="logo expand">
                     </div>
                 </div>
             </div>
-            <div class="hidden-list-container">
+            <div id="hidden-list-container" class="hidden-list-container">
                 <ul class="hidden-list">
                     <li>
-                        <input id="test" type="checkbox" value="test">
+                        <input class="input-mutli-select" id="test" type="checkbox" value="test">
                         <label for="test">test</label>
                     </li>
                     <li>
-                        <input id="test" type="checkbox" value="test">
+                        <input class="input-mutli-select" id="test" type="checkbox" value="test">
                         <label for="test">test</label>
                     </li>
                     <li>
-                        <input id="test" type="checkbox" value="test">
+                        <input class="input-mutli-select" id="test" type="checkbox" value="test">
                         <label for="test">test</label>
                     </li>
                 </ul>
@@ -130,6 +130,7 @@
     <script type="module" src="./JS/controller/converterDeviseController.mjs"></script>
     <script type="module" src="./JS/module/converterDeviseModule.mjs"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    <script src="./JS/chartjs.js"></script>
+    <script src="./JS/chartjs.js" type="text/javascript"></script>
     <script src="./JS/conversion.js" type="text/javascript"></script>
+    <script src="./JS/multiselect.js" type="text/javascript"></script>
 </html>
