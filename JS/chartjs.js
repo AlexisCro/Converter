@@ -26,6 +26,17 @@ const MONTHS   = {
     12: 'DECEMBRE'
 }
 let realChart;
+let selectedList = [];
+
+$(function(){
+    $('#devise-chart-multiselect').select2({
+        theme: "bootstrap-5",
+        closeOnSelect: false
+    }).on('change', function(){
+        let choice = $(this).find('[aria-selected="true"]:last-of-type');
+        selectedList.push(choice.prevObject[0].value);
+    });
+})
 
 function numberOfMonthBetweenTwoDates(date1, date2){
     let startMonth = date1.getMonth();
@@ -87,6 +98,10 @@ function dataAccordingToDate(dataRates, startDate, endDate, devise){
     return array;
 }
 
+function uniqValueArray(value, index, self){
+    return self.indexOf(value) === index;
+}
+
 // display default chart
 const exampleChart = new Chart(myChart, {
     type: 'line',
@@ -134,9 +149,10 @@ BUTTON.addEventListener('click', ()=>{
     const startYear    = startDate.getFullYear();
     const endMonth     = endDate.getMonth() + 1;
     const endYear      = endDate.getFullYear();
-    const DEVISE       = document.getElementById('devise-chart').value;
+    const DEVISE       = selectedList.filter(uniqValueArray).join(",");
     const BASE         = document.getElementById('base-chart').value;
     let titleChart     = document.getElementById('title-timeseries');
+    console.log('je passe dans le click et ');
 
     titleChart.innerHTML = `Taux de change basé sur ${BASE}`;
 
