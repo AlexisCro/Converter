@@ -26,17 +26,25 @@ const MONTHS   = {
     12: 'DECEMBRE'
 }
 let realChart;
-let selectedList = [];
 
-$(function(){
+const buildSelectMultiple = $(function(){
     $('#devise-chart-multiselect').select2({
         theme: "bootstrap-5",
         closeOnSelect: false
-    }).on('change', function(){
-        let choice = $(this).find('[aria-selected="true"]:last-of-type');
-        selectedList.push(choice.prevObject[0].value);
-    });
+    })
 })
+
+function selectedList(selectMultiple){
+    let selectedList = [];
+    let ul = document.getElementById('select2-devise-chart-multiselect-container');
+    let li = Object.values(ul.children);
+        li = Object.values(li);
+    li.forEach( element => {
+        let devise = element.lastChild.id.substring(55);
+        selectedList.push(devise);
+    })
+    return selectedList;
+}
 
 function numberOfMonthBetweenTwoDates(date1, date2){
     let startMonth = date1.getMonth();
@@ -146,13 +154,9 @@ BUTTON.addEventListener('click', ()=>{
     const endDateAPI   = document.getElementById('end-date').value
     const endDate      = new Date(document.getElementById('end-date').value);
     const startMonth   = startDate.getMonth() + 1;
-    const startYear    = startDate.getFullYear();
-    const endMonth     = endDate.getMonth() + 1;
-    const endYear      = endDate.getFullYear();
-    const DEVISE       = selectedList.filter(uniqValueArray).join(",");
+    const DEVISE       = selectedList(buildSelectMultiple).filter(uniqValueArray).join(",");
     const BASE         = document.getElementById('base-chart').value;
     let titleChart     = document.getElementById('title-timeseries');
-    console.log('je passe dans le click et ');
 
     titleChart.innerHTML = `Taux de change basé sur ${BASE}`;
 
