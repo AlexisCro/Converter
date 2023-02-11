@@ -27,6 +27,7 @@ const MONTHS   = {
 }
 let realChart;
 
+// Construction of multiselect with JQuery and select2
 const buildSelectMultiple = $(function(){
     $('#devise-chart-multiselect').select2({
         theme: "bootstrap-5",
@@ -34,6 +35,7 @@ const buildSelectMultiple = $(function(){
     })
 })
 
+// Construction of the devises' array
 function selectedList(selectMultiple){
     let selectedList = [];
     let ul = document.getElementById('select2-devise-chart-multiselect-container');
@@ -85,7 +87,6 @@ function dataAccordingToDate(dataRates, startDate, endDate, devise){
     let array      = [];
     let first      = startDate.substring(5, 7);
     let firstMonth = parseInt(first);
-    let end        = endDate.substring(5, 6);
     let startYear  = startDate.substring(0, 4);
     let startDay   = startDate.substring(8, 10);
     let date1      = new Date(startDate);
@@ -148,6 +149,8 @@ const exampleChart = new Chart(myChart, {
     }
 })
 
+
+// Construct and display chart when client ask
 BUTTON.addEventListener('click', ()=>{
     const startDate    = new Date(document.getElementById('start-date').value);
     const startDateAPI = document.getElementById('start-date').value;
