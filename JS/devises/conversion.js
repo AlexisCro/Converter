@@ -1,6 +1,6 @@
 //manage fixer to have all currencies in the choice list
 let deviseInput  = document.getElementById('devise-input');
-let deviseChart  = document.getElementById('devise-chart');
+let deviseChart  = document.getElementById('devise-chart-multiselect');
 let baseChart    = document.getElementById('base-chart');
 let deviseOutput = document.getElementById('devise-output');
 

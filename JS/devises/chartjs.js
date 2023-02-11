@@ -27,6 +27,27 @@ const MONTHS   = {
 }
 let realChart;
 
+// Construction of multiselect with JQuery and select2
+const buildSelectMultiple = $(function(){
+    $('#devise-chart-multiselect').select2({
+        theme: "bootstrap-5",
+        closeOnSelect: false
+    })
+})
+
+// Construction of the devises' array
+function selectedList(selectMultiple){
+    let selectedList = [];
+    let ul = document.getElementById('select2-devise-chart-multiselect-container');
+    let li = Object.values(ul.children);
+        li = Object.values(li);
+    li.forEach( element => {
+        let devise = element.lastChild.id.substring(55);
+        selectedList.push(devise);
+    })
+    return selectedList;
+}
+
 function numberOfMonthBetweenTwoDates(date1, date2){
     let startMonth = date1.getMonth();
     let startYear  = date1.getYear();
@@ -66,7 +87,6 @@ function dataAccordingToDate(dataRates, startDate, endDate, devise){
     let array      = [];
     let first      = startDate.substring(5, 7);
     let firstMonth = parseInt(first);
-    let end        = endDate.substring(5, 6);
     let startYear  = startDate.substring(0, 4);
     let startDay   = startDate.substring(8, 10);
     let date1      = new Date(startDate);
@@ -85,6 +105,10 @@ function dataAccordingToDate(dataRates, startDate, endDate, devise){
         };
     }
     return array;
+}
+
+function uniqValueArray(value, index, self){
+    return self.indexOf(value) === index;
 }
 
 // display default chart
@@ -125,25 +149,45 @@ const exampleChart = new Chart(myChart, {
     }
 })
 
+// Color RGB random
+function getRGB(max){
+    return Math.random() * max;
+}
+
+//Construction datas to display on chart
+function buildDatasChart(array, result, startDateAPI, endDateAPI){
+    let datas = [];
+    array.forEach( element => {
+        let red   = getRGB(200);
+        let green = getRGB(255);
+        let blue  = getRGB(170);
+        let data  = {
+            label: `${element} : masquez moi`,
+            data: dataAccordingToDate(result, startDateAPI, endDateAPI, element),
+            bordercolor: `rgb(${red}, ${green}, ${blue})`,
+            backgroundColor: `rgb(${red}, ${green}, ${blue})`
+        }
+        datas.push(data);
+    })
+    return datas;
+}
+
+// Construct and display chart when client ask
 BUTTON.addEventListener('click', ()=>{
     const startDate    = new Date(document.getElementById('start-date').value);
     const startDateAPI = document.getElementById('start-date').value;
     const endDateAPI   = document.getElementById('end-date').value
     const endDate      = new Date(document.getElementById('end-date').value);
     const startMonth   = startDate.getMonth() + 1;
-    const startYear    = startDate.getFullYear();
-    const endMonth     = endDate.getMonth() + 1;
-    const endYear      = endDate.getFullYear();
-    const DEVISE       = document.getElementById('devise-chart').value;
-    const BASE         = document.getElementById('base-chart').value;
+    const devises      = selectedList(buildSelectMultiple).filter(uniqValueArray).join(",");
+    const base         = document.getElementById('base-chart').value;
     let titleChart     = document.getElementById('title-timeseries');
 
-    titleChart.innerHTML = `Taux de change basé sur ${BASE}`;
+    titleChart.innerHTML = `Taux de change basé sur ${base}`;
 
-    fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${startDateAPI}&end_date=${endDateAPI}&base=${BASE}&symbols=${DEVISE}`, requestOptions)
+    fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${startDateAPI}&end_date=${endDateAPI}&base=${base}&symbols=${devises}`, requestOptions)
     .then(response => response.json())
     .then(result => {
-        let rates = result["rates"];
         exampleChart.destroy();
         if(realChart != undefined){
             realChart.destroy();
@@ -151,12 +195,7 @@ BUTTON.addEventListener('click', ()=>{
             type: 'line',
             data: {
                 labels: labels(startDate, endDate, startMonth),
-                datasets: [{
-                    label: `${DEVISE} : masquez moi`,
-                    data: dataAccordingToDate(result, startDateAPI, endDateAPI, DEVISE),
-                    borderColor: 'red',
-                    backgroundColor: '#f8c0b4'
-                }]
+                datasets: buildDatasChart(devises.split(","), result, startDateAPI, endDateAPI)
             },
             options: {
                 transitions: {
@@ -188,12 +227,7 @@ BUTTON.addEventListener('click', ()=>{
                 type: 'line',
                 data: {
                     labels: labels(startDate, endDate, startMonth),
-                    datasets: [{
-                        label: `${DEVISE} : masquez moi`,
-                        data: dataAccordingToDate(result, startDateAPI, endDateAPI, DEVISE),
-                        borderColor: 'red',
-                        backgroundColor: '#f8c0b4'
-                    }]
+                    datasets: buildDatasChart(devises.split(","), result, startDateAPI, endDateAPI)
                 },
                 options: {
                     transitions: {
