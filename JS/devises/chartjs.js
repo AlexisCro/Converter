@@ -172,7 +172,6 @@ function buildDatasChart(array, result, startDateAPI, endDateAPI){
     return datas;
 }
 
-
 // Construct and display chart when client ask
 BUTTON.addEventListener('click', ()=>{
     const startDate    = new Date(document.getElementById('start-date').value);
