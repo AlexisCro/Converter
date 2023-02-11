@@ -61,33 +61,36 @@
                         <div class="card offset-md-1" style="width: 700px;">
                             <div class="row">
                                 <h5 id="title-timeseries" class="card-title" style="margin-bottom: 15px;">Taux de change basé sur l'euro</h5>
-                                <div class="col-md-5 mb-3 mb-sm-0">
+                                <div class="mb-3 mb-sm-0">
                                     <div class="card-body">
                                         <form>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">date</span>
-                                                <input type="date" id="start-date" class="form-control-lg" placeholder="start-date" aria-label="start-date" aria-describedby="basic-addon1" required>
+                                            <div class="d-flex d-flex-row justify-content-around">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">date</span>
+                                                    <input type="date" id="start-date" class="form-control" placeholder="start-date" aria-label="start-date" aria-describedby="basic-addon1" required>
+                                                </div>
+                                                <div class="mx-4 fs-3">&rarr;</div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon2">date</span>
+                                                    <input type="date" id="end-date" class="form-control" placeholder="end-date" aria-label="end-date" aria-describedby="basic-addon2" value="" required>
+                                                </div>
                                             </div>
-                                            <div class="mb-3">-</div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon2">date</span>
-                                                <input type="date" id="end-date" class="form-control-lg" placeholder="end-date" aria-label="end-date" aria-describedby="basic-addon2" value="" required>
-                                            </div>
-                                            <div class="mb-3">-</div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon2">base</span>
-                                                <select id="base-chart" class="form-select form-select-lg" aria-label="form-select-lg" required></select>
-                                            </div>
-                                            <div class="mb-3">-</div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text">devise</span> 
-                                                <select id="devise-chart-multiselect" class="form-select form-select-lg select2-selection-font-s" aria-label="form-select-lg" multiple></select>
+                                            <div class="d-flex d-flex-row justify-content-around">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon2">base</span>
+                                                    <select id="base-chart" class="form-select form-select-lg" aria-label="form-select-lg" required></select>
+                                                </div>
+                                                <div class="mx-4 fs-3">&rarr;</div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">devise</span>
+                                                    <select id="devise-chart-multiselect" class="form-select form-select-lg select2-selection-font-s" aria-label="form-select-lg" multiple></select>
+                                                </div>
                                             </div>
                                             <button type="button" id="rates-button" class="btn btn-primary" style="margin-bottom: 15px;">Graphique</button>
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-md-7">
+                                <div>
                                     <div>
                                         <canvas id="myChart" aria-label="chart" role="img"></canvas>
                                     </div>
