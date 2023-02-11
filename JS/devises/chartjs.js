@@ -149,6 +149,29 @@ const exampleChart = new Chart(myChart, {
     }
 })
 
+// Color RGB random
+function getRGB(max){
+    return Math.random() * max;
+}
+
+//Construction datas to display on chart
+function buildDatasChart(array, result, startDateAPI, endDateAPI){
+    let datas = [];
+    array.forEach( element => {
+        let red   = getRGB(200);
+        let green = getRGB(255);
+        let blue  = getRGB(170);
+        let data  = {
+            label: `${element} : masquez moi`,
+            data: dataAccordingToDate(result, startDateAPI, endDateAPI, element),
+            bordercolor: `rgb(${red}, ${green}, ${blue})`,
+            backgroundColor: `rgb(${red}, ${green}, ${blue})`
+        }
+        datas.push(data);
+    })
+    return datas;
+}
+
 
 // Construct and display chart when client ask
 BUTTON.addEventListener('click', ()=>{
@@ -157,29 +180,24 @@ BUTTON.addEventListener('click', ()=>{
     const endDateAPI   = document.getElementById('end-date').value
     const endDate      = new Date(document.getElementById('end-date').value);
     const startMonth   = startDate.getMonth() + 1;
-    const DEVISE       = selectedList(buildSelectMultiple).filter(uniqValueArray).join(",");
-    const BASE         = document.getElementById('base-chart').value;
+    const devises      = selectedList(buildSelectMultiple).filter(uniqValueArray).join(",");
+    const base         = document.getElementById('base-chart').value;
     let titleChart     = document.getElementById('title-timeseries');
 
-    titleChart.innerHTML = `Taux de change basé sur ${BASE}`;
+    titleChart.innerHTML = `Taux de change basé sur ${base}`;
 
-    fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${startDateAPI}&end_date=${endDateAPI}&base=${BASE}&symbols=${DEVISE}`, requestOptions)
+    fetch(`https://api.apilayer.com/exchangerates_data/timeseries?start_date=${startDateAPI}&end_date=${endDateAPI}&base=${base}&symbols=${devises}`, requestOptions)
     .then(response => response.json())
     .then(result => {
-        let rates = result["rates"];
         exampleChart.destroy();
         if(realChart != undefined){
             realChart.destroy();
+
             realChart = new Chart(myChart, {
             type: 'line',
             data: {
                 labels: labels(startDate, endDate, startMonth),
-                datasets: [{
-                    label: `${DEVISE} : masquez moi`,
-                    data: dataAccordingToDate(result, startDateAPI, endDateAPI, DEVISE),
-                    borderColor: 'red',
-                    backgroundColor: '#f8c0b4'
-                }]
+                datasets: buildDatasChart(devises.split(","), result, startDateAPI, endDateAPI)
             },
             options: {
                 transitions: {
@@ -211,12 +229,7 @@ BUTTON.addEventListener('click', ()=>{
                 type: 'line',
                 data: {
                     labels: labels(startDate, endDate, startMonth),
-                    datasets: [{
-                        label: `${DEVISE} : masquez moi`,
-                        data: dataAccordingToDate(result, startDateAPI, endDateAPI, DEVISE),
-                        borderColor: 'red',
-                        backgroundColor: '#f8c0b4'
-                    }]
+                    datasets: buildDatasChart(devises.split(","), result, startDateAPI, endDateAPI)
                 },
                 options: {
                     transitions: {
