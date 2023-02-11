@@ -191,7 +191,6 @@ BUTTON.addEventListener('click', ()=>{
         exampleChart.destroy();
         if(realChart != undefined){
             realChart.destroy();
-
             realChart = new Chart(myChart, {
             type: 'line',
             data: {
