@@ -7,9 +7,13 @@ Tool 100% front to convert
 Create a tool 100% front-end to convert different money. 
 
 # Technologies
-    - HTML
-    - CSS / Bootstrap / Select2 - Theme Bootstrap 5
-    - JS / ChartJS
+- HTML
+- CSS
+    - Bootstrap
+    - Select2 / Theme Bootstrap 5
+- JS
+    - ChartJS
+    - JQuery / Select2
 
 # Tools
 The application being 100% front-end it is advisable to use the Live server extension of VSCode. 
@@ -20,69 +24,23 @@ Fixer and Exchange Rates to convert currencies.
 Only Exchanges Rates to display and construct the dynamic list of currencies symbols. 
 
 ## Framework 
-BOOTSTRAP v5.3
+&#x1F4DA; BOOTSTRAP v5.3
 
-Chart.js v3.7.1
+&#x1F4DA; Chart.js v3.7.1
 
-Select2 v4.1
+&#x1F4DA; Select2 v4.1
 
 ## Link documentation
-[Exchange Rates](https://apilayer.com/marketplace/exchangerates_data-api#documentation-tab)
+&#x1F4A1; [Exchange Rates](https://apilayer.com/marketplace/exchangerates_data-api#documentation-tab)
 
-[Fixer](https://apilayer.com/marketplace/fixer-api)
+&#x1F4A1; [Fixer](https://apilayer.com/marketplace/fixer-api)
 
-[Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+&#x1F4A1; [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
-[Chart.js](https://www.chartjs.org/)
+&#x1F4A1; [Chart.js](https://www.chartjs.org/)
 
-[Select2](https://apalfrey.github.io/select2-bootstrap-5-theme/examples/multiple-select/)
+&#x1F4A1; [Select2](https://apalfrey.github.io/select2-bootstrap-5-theme/examples/multiple-select/)
 
 # GIT
 
-## Get the repo
-Open your Terminal 
-
-Go in the directory where you want to add the repository. 
-
-On Github, copy the link in HTTPS or SSH (if you use SSH, you have to add a SSH key : [Git protocol](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). 
-
-Then in your terminal enter
-
-```
-git clone [link]
-``` 
-
-## Creation of a new branch 
-To create a new branch use this regexp :
-
-if you need to modify a documentation file name your branch as "devops/*nameofyourbranch*". 
-
-if you need to create a new feature a new otpion in the app name your branch as "feature/*nameofyourbranch*"
-
-if you need to add a fix about an issue use this syntax : "issue/*nameofyourbranch*"
-
-For instance :
-I want modify the readMe after the add of an API, so I create a new branch on my local repositorie name "devops/update-readMe-about-API"
-
-## Pull Request
-
-When you finish a step in your work you have to commit (don't forget the comment with the option -m) then you will make a push 
-
-```
-git push
-```
-But sometimes it's possible that git push isn't enough, in this case git will ask you to make :
-```
-git push --set-upstream origin nameofyourbranch
-```
-Do it, by this way you will create the branch on github.
-Finally you have to make a pull request. 
-The manager will review the pull request and if everything is ok so the branch will be merge. 
-
-When you push your code you have to make a pull request. 
-
-First, when you push with git on your PC you will have a message on your terminal "Create a pull request" and just below you will have an web address where your pull request is. 
-
-Then you will copy this url on your browser and you will arrive on Github. 
-Create your Pull Request. 
-Finally create an issue in Github, associate your Pull Request, assign the issue to someone to review it.
+&#x1F4D6; [Workflow GIT](./documentation/workflow_git.md)
