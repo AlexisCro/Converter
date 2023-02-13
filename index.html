@@ -11,88 +11,89 @@
         <link href="assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css" rel="stylesheet">
     </head>
     <body>
-    <header>
-        <nav class="navbar bg-primary fixed-top">
-            <div class="container-fluid d-flex justify-content-end">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="border-color:white;">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Convertisseur monnaies</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Convertisseur salaires brut-net</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div>
-            <div class="container text-center">
-                <div class="row" style="margin-top:5%;">
-                    <div class="col-md-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title" style="margin-bottom: 15px;">Convertisseur</h5>
-                                <form>
-                                    <select id="devise-input" class="form-select form-select-lg mb-3" aria-label="form-select-lg" required></select>
-                                    <input id="price-input" type="number" class="form-control form-control-lg" placeholder="chiffre" required>
-                                    <div style="text-align: center; font-size:50px">&darr;</div>
-                                    <select id="devise-output" class="form-select form-select-lg mb-3" aria-label="form-select-lg" required></select>
-                                    <input id="price-output" type="number" class="form-control form-control-lg mb-3" placeholder="chiffre" disabled>
-                                    <div class="d-grid gap-2 col-6 mx-auto">
-                                        <button id="convert-button" type="button" class="btn btn-primary">Convertir</button>
-                                    </div>
-                                </form>
-                            </div>
+        <header>
+            <nav class="navbar bg-primary fixed-top">
+                <div class="container-fluid d-flex justify-content-end">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="border-color:white;">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Convertisseur monnaies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Convertisseur salaires brut-net</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="card offset-md-1" style="width: 700px;">
-                            <div class="row">
-                                <h5 id="title-timeseries" class="card-title" style="margin-bottom: 15px;">Taux de change basé sur l'euro</h5>
-                                <div class="mb-3 mb-sm-0">
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="d-flex d-flex-row justify-content-around">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1">date</span>
-                                                    <input type="date" id="start-date" class="form-control" aria-label="start-date" aria-describedby="basic-addon1" required>
-                                                </div>
-                                                <div class="mx-4 fs-3">&rarr;</div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon2">date</span>
-                                                    <input type="date" id="end-date" class="form-control" aria-label="end-date" aria-describedby="basic-addon2" value="" required>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex d-flex-row justify-content-around">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text">base</span>
-                                                    <select id="base-chart" class="form-select form-select-lg" aria-label="form-select-lg" required></select>
-                                                </div>
-                                                <div class="mx-4 fs-3">&rarr;</div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text">devise</span>
-                                                    <select id="devise-chart-multiselect" class="form-select form-select-lg select2-selection-font-s" aria-label="form-select-lg" multiple></select>
-                                                </div>
-                                            </div>
-                                            <button type="button" id="rates-button" class="btn btn-primary" style="margin-bottom: 15px;">Graphique</button>
-                                        </form>
-                                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div>
+                <div class="container text-center">
+                    <div class="row" style="margin-top:5%;">
+                        <div class="col-md-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="margin-bottom: 15px;">Convertisseur</h5>
+                                    <form>
+                                        <select id="devise-input" class="form-select form-select-lg mb-3" aria-label="form-select-lg" required></select>
+                                        <input id="price-input" type="number" class="form-control form-control-lg" placeholder="chiffre" required>
+                                        <div style="text-align: center; font-size:50px">&darr;</div>
+                                        <select id="devise-output" class="form-select form-select-lg mb-3" aria-label="form-select-lg" required></select>
+                                        <input id="price-output" type="number" class="form-control form-control-lg mb-3" placeholder="chiffre" disabled>
+                                        <div class="d-grid gap-2 col-6 mx-auto">
+                                            <button id="convert-button" type="button" class="btn btn-primary">Convertir</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card offset-md-1" style="width: 700px;">
+                                <div class="row">
+                                    <h5 id="title-timeseries" class="card-title" style="margin-bottom: 15px;">Taux de change basé sur l'euro</h5>
+                                    <div class="mb-3 mb-sm-0">
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="d-flex d-flex-row justify-content-around">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">date</span>
+                                                        <input type="date" id="start-date" class="form-control" aria-label="start-date" required>
+                                                    </div>
+                                                    <div class="mx-4 fs-3">&rarr;</div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">date</span>
+                                                        <input type="date" id="end-date" class="form-control" aria-label="end-date" value="" required>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex d-flex-row justify-content-around">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">base</span>
+                                                        <select id="base-chart" class="form-select form-select-lg" aria-label="form-select-lg" required></select>
+                                                    </div>
+                                                    <div class="mx-4 fs-3">&rarr;</div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text">devise</span>
+                                                        <select id="devise-chart-multiselect" class="form-select form-select-lg select2-selection-font-s" aria-label="form-select-lg" multiple></select>
+                                                    </div>
+                                                </div>
+                                                <button type="button" id="rates-button" class="btn btn-primary" style="margin-bottom: 15px;">Graphique</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                     <div>
-                                        <canvas id="myChart" aria-label="chart" role="img"></canvas>
+                                        <div>
+                                            <canvas id="myChart" aria-label="chart" role="img"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -100,16 +101,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="./assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
-    <script type="module" src="./JS/controller/converterDeviseController.mjs"></script>
-    <script type="module" src="./JS/module/converterDeviseModule.mjs"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    <script src="./JS/devises/chartjs.js"></script>
-    <script src="./JS/devises/conversion.js"></script>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="./assets/bootstrap-5.3.0-alpha1-dist/js/bootstrap.js"></script>
+        <script type="module" src="./JS/controller/converterDeviseController.mjs"></script>
+        <script type="module" src="./JS/module/converterDeviseModule.mjs"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+        <script src="./JS/devises/chartjs.js"></script>
+        <script src="./JS/devises/conversion.js"></script>
     </body>
 </html>
