@@ -50,7 +50,16 @@ Attach your PR with an appropriate issue.
 Create your issue and named it with an explicit title. 
 Assign it to yourself, assign the correct label and put in the board at the correct step (Todo, In progress, done, ...)
 
-![screenshot_issue](../assets/documentations/Screenshot 2023-02-13 at 13.32.12.png)
+![screenshot_issue](../assets/documentations/workflow-git/screenshot-create-issue.png)
 
 When you will create this issue you will can't link the branch yet and link the step in the board. 
 First save your issue then apply the modifications. 
+
+## Get a branch from the distant
+If you are a reviewer on this project, maybe you will need to get the branch to try on your device.
+
+To pull the branch follow this instructions : 
+- create on your machine a branch with the same name of the distant
+- change of branch with the `checkout` command
+- use ```git pull origin name-of-the-branch```
+
