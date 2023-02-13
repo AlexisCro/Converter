@@ -50,7 +50,7 @@ Attach your PR with an appropriate issue.
 Create your issue and named it with an explicit title. 
 Assign it to yourself, assign the correct label and put in the board at the correct step (Todo, In progress, done, ...)
 
-![screenshot issue](../assets/documentations/screen_create_issue.png)
+![screenshot_issue](../assets/documentations/Screenshot 2023-02-13 at 13.32.12.png)
 
 When you will create this issue you will can't link the branch yet and link the step in the board. 
 First save your issue then apply the modifications. 
