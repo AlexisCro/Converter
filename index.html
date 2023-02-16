@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css">
         <link rel="stylesheet" href="assets/CSS/layout.css">
+        <link rel="stylesheet" href="assets/CSS/small-device.css">
         <link rel="stylesheet" href="assets/CSS/multiple-select.css">
         <link href="assets/bootstrap-5.3.0-alpha1-dist/css/bootstrap.css" rel="stylesheet">
     </head>
@@ -41,7 +42,7 @@
             <div>
                 <div class="container text-center">
                     <div class="row" style="margin-top:5%;">
-                        <div class="col-md-5">
+                        <div class="col-md-5 mb-4-sm-device">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title" style="margin-bottom: 15px;">Convertisseur</h5>
@@ -59,29 +60,29 @@
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <div class="card offset-md-1" style="width: 700px;">
+                            <div class="card offset-md-1 sm-device">
                                 <div class="row">
                                     <h5 id="title-timeseries" class="card-title" style="margin-bottom: 15px;">Taux de change basé sur l'euro</h5>
                                     <div class="mb-3 mb-sm-0">
                                         <div class="card-body">
                                             <form>
-                                                <div class="d-flex d-flex-row justify-content-around">
+                                                <div class="d-flex d-flex-column-sm-device justify-content-around mb-5">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text">date</span>
                                                         <input type="date" id="start-date" class="form-control" aria-label="start-date" required>
                                                     </div>
-                                                    <div class="mx-4 fs-3">&rarr;</div>
+                                                    <div class="mx-4 fs-3 mb-3">&rarr;</div>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text">date</span>
                                                         <input type="date" id="end-date" class="form-control" aria-label="end-date" value="" required>
                                                     </div>
                                                 </div>
-                                                <div class="d-flex d-flex-row justify-content-around">
+                                                <div class="d-flex d-flex-column-sm-device justify-content-around mb-2">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text">base</span>
                                                         <select id="base-chart" class="form-select form-select-lg" aria-label="form-select-lg" required></select>
                                                     </div>
-                                                    <div class="mx-4 fs-3">&rarr;</div>
+                                                    <div class="mx-4 fs-3 mb-3">&rarr;</div>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text">devise</span>
                                                         <select id="devise-chart-multiselect" class="form-select form-select-lg select2-selection-font-s" aria-label="form-select-lg" multiple></select>
