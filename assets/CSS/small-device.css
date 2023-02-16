@@ -1,0 +1,13 @@
+@media (max-width: 797.98px) {
+    .mb-4-sm-device {
+        margin-bottom: 1.5rem;
+    }
+
+    .sm-device {
+        width: auto !important;
+    }
+    
+    .d-flex-column-sm-device {
+        flex-direction: column;
+    }
+}

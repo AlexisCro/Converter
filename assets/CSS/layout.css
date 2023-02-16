@@ -5,3 +5,7 @@ header {
 main {
     margin-top: 7%;
 }
+
+.container div.offset-md-1 {
+    width: 700px
+}
