@@ -9,3 +9,11 @@ main {
 .container div.offset-md-1 {
     width: 700px
 }
+
+/* class active for the sidenave active link */
+
+.active-link {
+    color:  #3949c1 !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
