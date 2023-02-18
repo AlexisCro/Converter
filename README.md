@@ -4,7 +4,7 @@ Tool 100% front to convert
 
 # Goal
 
-Create a tool 100% front-end to convert different money. 
+Create a tool 100% front-end to convert different currencies. 
 
 # Technologies
 - HTML
@@ -44,3 +44,11 @@ Only Exchanges Rates to display and construct the dynamic list of currencies sym
 # GIT
 
 &#x1F4D6; [Workflow GIT](./documentation/workflow_git.md)
+
+# Deployement 
+
+The app is deployed on Netlify [here](https://main--converteracr.netlify.app/index.html)
+
+## Branch
+
+The main branch is deploy, to make any changes, updates or anything else git pull the develop branch and create your own branch from develop on your local machine.
